@@ -37,8 +37,18 @@ class ProviderController extends Controller
     public function update(Request $request, $id)
     {
         $provider = $this->providerService->update($id, $request->all());
-
-        return ProviderResource::make($provider);
+        return $provider;
     }
 
+    public function view()
+    {
+        $providers = $this->providerService->getAll();
+        return view('providers', compact('providers'));
+    }
+
+    public function destroy($id)
+    {
+        $provider = $this->providerService->delete($id);
+        return $provider;
+    }
 }

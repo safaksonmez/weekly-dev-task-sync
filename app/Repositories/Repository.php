@@ -25,7 +25,7 @@ abstract class Repository
         return $this->model->create($data);
     }
 
-    public function update(array $data, $id)
+    public function update($id, array $data)
     {
         $record = $this->model->find($id);
         return $record->update($data);
