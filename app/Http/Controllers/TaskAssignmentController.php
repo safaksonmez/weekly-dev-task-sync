@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\TaskAssignmentResource;
 use App\Services\TaskAssignmentService;
+use Illuminate\Http\Request;
 
 class TaskAssignmentController extends Controller
 {
@@ -16,9 +17,10 @@ class TaskAssignmentController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $taskAssignments = $this->service->assignTasks();
+        $provider_id = $request->get('provider_id');
+        $taskAssignments = $this->service->assignTasks($provider_id);
 
         return TaskAssignmentResource::make($taskAssignments);
     }

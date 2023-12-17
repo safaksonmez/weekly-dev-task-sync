@@ -7,9 +7,9 @@ use App\Models\Task;
 
 class TaskAssignmentService
 {
-    public function assignTasks()
+    public function assignTasks(int $provider_id)
     {
-        $tasks = Task::all()->sortByDesc(function ($task) {
+        $tasks = Task::all()->where('provider_id', $provider_id)->sortByDesc(function ($task) {
             return $task->estimated_duration * $task->value;
         });
 
@@ -29,6 +29,8 @@ class TaskAssignmentService
                     if ($developer->available_hours >= $taskDurationForDeveloper) {
                         $developer->available_hours -= $taskDurationForDeveloper;
                         $assignments["Week" . $week][$developer->name][] = $task->name;
+                        $task->developer()->associate($developer->id);
+                        $task->save();
                         $tasks->forget($key);
                         break;
                     }
