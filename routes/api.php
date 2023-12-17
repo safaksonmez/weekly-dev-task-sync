@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource("providers", "ProviderController");
 Route::apiResource("tasks", "TaskController");
 Route::apiResource("developers", "DeveloperController");
+Route::get("task-assignments", "TaskAssignmentController@index");

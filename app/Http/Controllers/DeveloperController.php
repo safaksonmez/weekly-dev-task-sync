@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DeveloperResource;
 use App\Services\DeveloperService;
 
 class DeveloperController extends Controller
@@ -15,6 +16,6 @@ class DeveloperController extends Controller
     {
         $developers = $this->developerService->getAll();
 
-        return $developers;
+        return DeveloperResource::collection($developers);
     }
 }

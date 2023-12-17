@@ -14,6 +14,7 @@ class Task extends Model
         'estimated_duration',
         'value',
         'provider_id',
+        'developer_id',
     ];
 
     /**
@@ -22,5 +23,13 @@ class Task extends Model
     public function provider()
     {
         return $this->belongsTo(Provider::class);
+    }
+
+    /**
+     * Relationship with developers.
+     */
+    public function developer()
+    {
+        return $this->belongsTo(Developer::class);
     }
 }

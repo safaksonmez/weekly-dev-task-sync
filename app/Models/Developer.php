@@ -13,4 +13,9 @@ class Developer extends Model
         'name',
         'efficiency',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
