@@ -16,9 +16,10 @@ class CreateProvidersTable extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('value_key');
-            $table->string('estimated_duration_key');
-            $table->string('id_key');
+            $table->string('task_value_key');
+            $table->string('task_estimated_duration_key');
+            $table->string('task_name_key');
+            $table->string('url');
             $table->timestamps();
         });
     }

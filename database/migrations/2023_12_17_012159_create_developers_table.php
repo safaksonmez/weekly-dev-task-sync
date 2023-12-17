@@ -15,6 +15,8 @@ class CreateDevelopersTable extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('efficiency');
             $table->timestamps();
         });
     }
