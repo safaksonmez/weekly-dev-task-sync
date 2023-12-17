@@ -3,10 +3,10 @@ namespace App\Services;
 
 use App\Repositories\TaskRepository;
 
-class DeveloperService extends Service
+class TaskService extends Service
 {
     /**
-     * @var DeveloperRepository
+     * @var TaskRepository
      */
     protected $repository;
 

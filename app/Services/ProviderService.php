@@ -3,10 +3,10 @@ namespace App\Services;
 
 use App\Repositories\ProviderRepository;
 
-class DeveloperService extends Service
+class ProviderService extends Service
 {
     /**
-     * @var DeveloperRepository
+     * @var ProviderRepository
      */
     protected $repository;
 
