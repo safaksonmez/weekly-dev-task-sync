@@ -44,6 +44,9 @@ class FetchTasks extends Command
             foreach ($providers as $provider) {
                 $tasks = $provider->fetchTasks();
                 foreach ($tasks as $task) {
+                    if (Task::where('name', $task[$provider->task_name_key])->exists()) {
+                        continue;
+                    }
                     Task::create([
                         'name' => $task[$provider->task_name_key],
                         'estimated_duration' => $task[$provider->task_estimated_duration_key],
