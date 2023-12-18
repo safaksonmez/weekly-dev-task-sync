@@ -43,4 +43,18 @@ class DeveloperController extends Controller
         return DeveloperResource::make($developer);
     }
 
+    public function destroy($id)
+    {
+        $developer = $this->developerService->delete($id);
+
+        return $developer;
+    }
+
+    public function view()
+    {
+        $developers = $this->developerService->getAll();
+
+        return view('developers', compact('developers'));
+    }
+
 }

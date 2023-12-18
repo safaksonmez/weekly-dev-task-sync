@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/providers', 'ProviderController@view');
+Route::get('/developers', 'DeveloperController@view');
+Route::get('/tasks', 'TaskController@view');

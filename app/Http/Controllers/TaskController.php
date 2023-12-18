@@ -44,4 +44,17 @@ class TaskController extends Controller
 
         return TaskResource::make($task);
     }
+
+    public function destroy($id)
+    {
+        $task = $this->service->delete($id);
+
+        return $task;
+    }
+
+    public function view()
+    {
+        return view('tasks');
+    }
+
 }

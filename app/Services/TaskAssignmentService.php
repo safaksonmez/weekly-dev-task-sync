@@ -7,9 +7,11 @@ use App\Models\Task;
 
 class TaskAssignmentService
 {
-    public function assignTasks(int $provider_id)
+    public function assignTasks(int $provider_id = null)
     {
-        $tasks = Task::all()->where('provider_id', $provider_id)->sortByDesc(function ($task) {
+        $tasks = Task::when($provider_id, function ($query) use ($provider_id) {
+            return $query->where('provider_id', $provider_id);
+        })->get()->sortByDesc(function ($task) {
             return $task->estimated_duration * $task->value;
         });
 
