@@ -42,3 +42,11 @@ To get a local copy up and running follow these simple steps.
     -   `https://run.mocky.io/v3/7b0ff222-7a9c-4c54-9396-0df58e289143` for provider 2
 
 -   As you can see providers can send datas from another languages and we can handle it with our localization system. You just need to assign keys while adding the provider.
+
+## Todos
+
+-   Add tests
+-   Add Error Handling
+-   More detailed tables for lists
+-   OpenAPI or Postman documentation
+-   Authentication and Authorization
